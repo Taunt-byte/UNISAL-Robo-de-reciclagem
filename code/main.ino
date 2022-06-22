@@ -49,5 +49,9 @@ void pegar(){
         s1.write(pos);
         delay(15);
     }
-    for(int pos = 50; pos >=10;pos--)
+    for(int pos = 50; pos >=10;pos--){
+        s2.write(pos);
+        delay(15);
+    }
+    int i = 5;
 }
