@@ -54,4 +54,53 @@ void pegar(){
         delay(15);
     }
     int i = 5;
+    for(int pos = 0; pos <=140;pos ++ ){
+        s1.write(pos);
+        delay(i);
+        if(pos < 90 and pos %9 == 0){
+            i++;
+        }
+        Serial,println(i);
+    }
+    delay(500);
+    for (int pos = 10; pos <= 50; pos++)
+    {
+        s2.write(pos);
+        delay(15);
+    }
+    for (int pos = 10; pos <= 50; pos++)
+    {
+        s2.write(pos);
+        delay(15);
+    }
+}
+
+void vira_dir(){
+    motor1_esq.setSpeed(vel);
+    motor1_esq.run(FORWARD);
+    motor2_esq.setSpeed(vel);
+    motor2_esq.run(FORWARD);
+    motor1_dir.setSpeed(vel);
+    motor1_dir.run(FORWARD);
+    motor2_dir.setSpeed(vel);
+    motor2_dir.run(FORWARD);
+}
+void frente(){
+    motor1_esq.setSpeed(vel);
+    motor1_esq.run(FORWARD);
+    motor2_esq.setSpeed(vel);
+    motor2_esq.run(FORWARD);
+    motor1_dir.setSpeed(vel);
+    motor1_dir.run(FORWARD);
+    motor2_dir.setSpeed(vel);
+    motor2_dir.run(FORWARD);
+}
+void buscar(){
+    while (digitalRead(sens_3)) and digitalRead(sens_4) and digitalRead(sens_5){}
+    vira_dir();
+    delay(1000);
+    while(!digitalRead(sens_3)){}
+    frente();
+    
+    
 }
