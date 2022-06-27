@@ -96,11 +96,23 @@ void frente(){
     motor2_dir.run(FORWARD);
 }
 void buscar(){
-    while (digitalRead(sens_3)) and digitalRead(sens_4) and digitalRead(sens_5){}
+    while (digitalRead(sens_3) and digitalRead(sens_4) and digitalRead(sens_5)){}
     vira_dir();
     delay(1000);
     while(!digitalRead(sens_3)){}
     frente();
+    while(!digitalRead(sens_1) and !digitalRead(sens_2) and !digitalRead(sens_3) and !digitalRead(sens_4) and !digitalRead(sens_5)){}
+    pegar();
+    vira_dir();
+    delay(2000);
+    frente();
+    while(!digitalRead(sens_1) and !digitalRead(sens_2) and !digitalRead(sens_3) and !digitalRead(sens_4) and !digitalRead(sens_5)){}
+    vira_dir();
+    delay();
     
-    
+}
+void loop(){
+    frente();
+    while(!digitalRead(sens_1) and !digitalRead(sens_2) and !digitalRead(sens_3) and !digitalRead(sens_4) and !digitalRead(sens_5)){}
+    buscar();
 }
